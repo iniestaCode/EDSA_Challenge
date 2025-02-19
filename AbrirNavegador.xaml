@@ -1,0 +1,238 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AbrirNavegador" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_blnOpenAmazon" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>536,998</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="546,933" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Inicializa navegador" sap:VirtualizedContainerService.HintSize="484,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Inicializa navegador&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Abrir Navegador Amazon" sap:VirtualizedContainerService.HintSize="484,641" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="1e7ae2b6-536e-43df-b3f3-c777cd1dad67" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="450,384" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check If Exists Captcha" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="1e7ae2b6-536e-43df-b3f3-c777cd1dad67" Timeout="5" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,1541" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="strCodeCaptcha" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Exists Captcha" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="[&quot;Exists Captcha&quot;]" />
+                  <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input captcha" sap:VirtualizedContainerService.HintSize="388,239" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="[in_Config(&quot;LabelInputCaptcha&quot;).ToString]" Title="[in_Config(&quot;TitleInputCaptcha&quot;).ToString]">
+                    <ui:InputDialog.Result>
+                      <OutArgument x:TypeArguments="x:String">[strCodeCaptcha]</OutArgument>
+                    </ui:InputDialog.Result>
+                  </ui:InputDialog>
+                  <ui:LogMessage DisplayName="Log get captcha code" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;get captcha code&quot;]" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Code Captcha" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="1e7ae2b6-536e-43df-b3f3-c777cd1dad67" Text="[strCodeCaptcha.ToUpper]" Version="V4">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="chatgpt.com/c/67b4a700-ef60-8002-aee3-7eacf4a63b35" CVScreenId="899d6c00-4469-48b9-9488-8bae83391818" CvElementArea="838, 571, 260, 32" CvType="InputBox" DesignTimeRectangle="839, 572, 258, 31" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='captchacharacters' tag='INPUT' type='text' class='a-span12' placeholder='Type characters' aaname='' /&gt;" Guid="ea1c6309-05d3-47ad-b508-219e92b128b7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQYAAAAjCAYAAAB2I6QNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM8SURBVHhe7Z1NTuswFEbf8rOD7ICsgTJgBUWVGDBjVCZITDqtVL9c/+X62m3hQVr6co7kQWLHdqJ8xy5Cyh8HAGBADABQUYjh5eXFPT4+uoeHBwqFspAimZfsa7IYttute319de/v7+7j44NCoSykSOYl++KARBbD8/Oz2+127nA4xDMAsAQk85J9cUAii2Gz2SAFgIUi2RcHJAoxAMByQQwAUIEYAKACMQBABWIAgArEAAAV/ySG9V3nuu5IuVvHVtdg61Z95/r76Z8zAODrfHvH4CVxVRlofoEY3lau73q3eovHADcIYvhpEAP8B/y8GJ4G1/WrMaKJtRtSUKSuG9zqvs8/PYan0CogbcP5us7gA5japiAmMaxUP8PY60T5M0gF2M97cMN4fT5fjDEWI8CiL1+n5z/1vVX3WzybxphFn8VzBLgcM+wYlAgELQovBtXeH6e2ZrU/ufKGAGZx+H5EAKGPSQbxWI+nwlbMPc5tklG4Nh+b+fiw577U3O2889wCJ8dszI+/l8A1mEEM5QtdvNw+CDrsNlD16t4MhgnbhOov0ppfoCGNZp+RYu71OBkjhuoe9H3aMf3xmZ0SwAWYRQz+BfcrnwTo+Oop5ODEUFSlEepytdacEYMPZeq7d/0ZMfhrU/vxPqbAmx2LphBDlE8eM5VY3xjTPgckAddgHjH44Iwv/9MYEh1g/9IrUeggN3YMR2kFynNaDHauxbHt06z8rcAXO4GEuU7GaLYTjt5HIPxt4pPPBOAHmUkM8byserouroY5KIUobNjCqtwOlVmxcxg/IYYkKn+Nml9TDNMY4X6mwNtdSx7HiMH2W4S9VWdF2twZAczLbGIIL73ZCscgDD5koZRb5RD4VNfsN5GCHUvo57QYimvGwK11EE1IhSCD1H/980HXTwEOcwjX+BNRBqntcWkIRZ+6LcAF+bYYjuJDWL70rSAAwO9jNjH4VdKu+IgB4CaYQQxpK90QAGIAuAlm2zEAwO2CGACgAjEAQAViAIAKxAAAFU0xyFdo9vt9PAKAJSHZb36JSr5bJx+2RA4Ay0IyL9lvfrtSkAqxhmwpKBTKMopkXktBKMQAACAgBgAwOPcX5kWCAxx1WqsAAAAASUVORK5CYII=" InformativeScreenshot="ad7762bf3ac4fa075681ca49e65502f5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="899d6c00-4469-48b9-9488-8bae83391818" CvTextArea="988, 555, 110, 16" CvTextArgument="Try different image" CvType="Text" DesignTimeRectangle="989, 555, 108, 15" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='A' type='' class='' aaname='Try different image' check:innerText='Try different image' /&gt;" Guid="8d0e567e-abe2-4ff4-8d70-92476aca6c9a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHAAAAATCAYAAABIgIm/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ+SURBVGhD7ZYxbuswDIZzndzincMH6ClyhI65R6YOb+uQtwSZMhfdOvQUeiIpSj8pyajrNq0BfYABy6JE6v8lwbsw2DTDwI0zDNw4w8CNUwy8XMPu4bnzXMNTCvsKXk/nsDvcwmt8fzrG+Y8v0hFewpRy7k/vEvcN+T+LrfV30D6BbOb3idYzEL+rmdOFG3djzqRhYMIaVeDv5jSew+Nbat6J32jSHB83kL4drmE6xAWSsH+pjSbMCf4eHnmcjJ2O9Qks1yU9/8Kf/C7XKcGx+h1Epu/74zXs6bs7wRpfTrLUkuP5kbWaGhomornyfoN10RyYE/XD9fs+u64p1mX6325QZ63vMgMpQRbCGcYG16eKaF2N3kCiFaf5bF8ywRhbC6b9IoLWqmJqfGobY2rzCOyTnL05pXbNz7XnOV1tRuv2PFnzhi8LDbTfaBEoYi7K4AqOoBkoSt9AmaNsnghsGJyDYcN6tdb14PhqLmAuzrbrHAVrbpUPdYY1CrUOqwwsCWji3vXpdhEBheEC+gbKu14z5ZF62iL4WI35AQNNPeewz30No0Fn1gPrTw/GrzOQhY3GXeKONzsFqYv8khMIVKI3TmDh3gb6fLZd5UOd6b2rq7DSwFQA7YzOognZSTpWFrDMQN+XxjXmELxoMldbUDu+nqswF2fbmCOtV/tYR8hvdE2xuW010B8a3MirDdSCeqdD4QXGOI6lP62FBhI4B9bixRRkfI5viiuY8Wk9uFkUjPM5bdvl0DlTHc2x3B9vs5PT2fyF2rqJtoFLmL2uBoshsxubp8dqA/nUwG4aLMPq567bD7DCQH9fDz6Hu+oXnD5i/RU6+FGGgZsmhP8cZLMh1bgchwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <ui:LogMessage DisplayName="Log type captcha code" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;type captcha code&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Continue" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1e7ae2b6-536e-43df-b3f3-c777cd1dad67" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="chatgpt.com/c/67b4a700-ef60-8002-aee3-7eacf4a63b35" CVScreenId="899d6c00-4469-48b9-9488-8bae83391818" CvElementArea="818, 653, 301, 33" CvTextArea="913, 662, 110, 16" CvTextArgument="Continue shopping" CvType="Button" DesignTimeRectangle="821, 655, 294, 29" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='a-button-text' aaname='Continue shopping' check:innerText='Continue shopping' /&gt;" Guid="11d76132-f0fd-4993-868f-436cb3fd9463" ImageBase64="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" InformativeScreenshot="2c9646d75e487bf1e14951c844f8bcc7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="899d6c00-4469-48b9-9488-8bae83391818" CvTextArea="914, 222, 108, 23" CvTextArgument="amazon" CvType="Text" DesignTimeRectangle="917, 225, 103, 31" FuzzySelectorArgument="&lt;webctrl tag='I' type='' class='a-icon a-logo' aaname='' /&gt;" Guid="22674b62-bae9-4875-95cf-e2711fc6be53" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGsAAAAjCAYAAACTtPQNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUuSURBVGhD7Zg9bhRBEIV9BWfEDkl9BSccwBzBJ0DyBQicE1kE5JZISRwhMuQADmCJgAzJQkRGwh7ma22Nat+++dmf2Z2V9kkl73bVdFfVq6qe9VF1wN7gQNYewZJ1f39fXV5eVmdnZ9XR0VEjfGcdvcPd3V3Rh9zc3JR17C8uLsrzCJ91j+vr60aP8L0Pcd7p6emCn1dXV9XDw8PMch7qZ5+07XN7ezsXV9+5AH3sy+cAn2OP8/NzG/8CWRjlwJ0cHx/bzTgw23EwicE+ryOsoSMwTXYI622BE6x7JsvJyUk5Q6F+9gmkZOATCXW2CLFFoSrUFpAnXUcohIw5soYQlUUT4cgiYXktC/q+pOfqCxCEs3VC4pTwdcjqKi4V2x1i0+dL3qMhCye0A0g0myGOfWV+2SQgruuykJgMCkRt8C38dMWhSVumKPEvj2wXI3lwZ+uzIOuRrmJG6OBAQ5YG4CpSNyZJGS4QnmEkUJ1tFYlD6N3zSIZ2ovqAz1mPsO8QuILMz7q98SeAXnO0MMqSLtsQvysi9gs0maBiORiHo1IVOqeHkJVnN1Wm+uwMcAnLYD+CCz/d3aBFkauzDc53jc8lUwtai4miz8g6RCcHsalNYD4TPdCAhpClUH2uTDBkjz4o4eqnwo1WN1k0kUoEoHiyDZLvdtURb0ZX/DYTOMmh0Wlt42sTZC3jrAI/qfboNB1BIX1kufhcx7JPtnH7Ms6yDZJjVF1+eQFLkQVBVIw+4GRXZEGSjpsu6SLL7QP5DpqXMchynRmYy4SblzjIOgf2VdY2yIIo1wl0FYnnee2wNrJcYnlWx19Abccgyz0faD65y1MrTKtwF2S5TsD3jL6iAhDixqYmL0OLZGdk6ZsegShWeRtUqH5ZsnQUuZE1JKluiqgvCi0ClyOX7Hz/qW4lstTABejGT8bYZLm3NjpNoTYai7sXwg5hT7pVf9A633RkOpu8j+o2QhbEZLhNkL5f9wrVL0OW80HJcs/rK7Ybf21CBwYhrliWHcFZh6xElgsgEskGbQFmZ8Ymi6SpDiIiYBKnYzIkn+P0XZKfVTI4j06laN19qj8BVL8SWW6GD5X40Tc2WUCTNVRydzl9l2QfXXe1ifvPidqsRBZV21aVIVRurh7s8xjYBll9ycInbDKpsRaIdWw4jwRlISaKN/KhPqKPPdqEa0TvM6B2nJfBd7UJzGWCVnaVS4XkYCOQvAY0CL33gL6kZLKBksU5CiUj7PL9wl/OcknjDH15aAP+aZyANX07RrgulNyMKIAQ3ZvvWZ/jXyz9GWDYOTklQAJ+Dk18G55/fa+ef35upHr8PdP0g7PxYRv5aiVrMAhsieCmAkh5+vS6+vf+hRV0U8PaZBH044eX1dPXt3tDWiap+F5///vx1RxZCB03JazfWTWev70rQSN8njppXSRkIqeGjZAFSABkEWTTaX9+zLTTRiaPYosYpoaNkVVQd5TeA3wvl/bUUBcSBRUFFj6yVvz+8qZ8nxI2S9YMcY9l0kq31QkoSdnRmCxvfXXn6P1URvcMSt6UMApZBXTZrEqd0HHox0xKkEORaPEgkDY3AuvPrGM7RYxHVoBxI6PRSem8ILBOMCQOIrLeP2x5tkjPeZyVuykQxTVmAa2D8ckKQFpd4Zq4bUq5Pw1JgVIwNWFTxfbICtTjkYS53zVjSBCQx50D+ikTBbZPVgYjjDulrniS6pK9ikQH9RG0b9gtWQKSW5I8IxBp68DmjgtikIneNZvCpMg6oBsHsvYGVfUfZQ/XKHOwLEwAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Click continue captcha" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Click continue captcha&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="chatgpt.com/c/67b4a700-ef60-8002-aee3-7eacf4a63b35" CVScreenId="899d6c00-4469-48b9-9488-8bae83391818" CvElementArea="838, 571, 260, 32" CvType="InputBox" DesignTimeRectangle="839, 572, 258, 31" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='captchacharacters' tag='INPUT' type='text' class='a-span12' placeholder='Type characters' aaname='' /&gt;" Guid="cc22953f-c314-4463-87b3-c7c447b123f8" InformativeScreenshot="8e5760e7cfbca62542150ae5bacfa25f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="899d6c00-4469-48b9-9488-8bae83391818" CvTextArea="988, 555, 110, 16" CvTextArgument="Try different image" CvType="Text" DesignTimeRectangle="989, 555, 108, 15" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='A' type='' class='' aaname='Try different image' check:innerText='Try different image' /&gt;" Guid="b6a7db31-006f-4393-8b80-c2a0477a120f" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <uix:NCheckState DisplayName="Check App State '.us'" EnableIfExists="False" EnableIfNotExists="False" Exists="[out_blnOpenAmazon]" sap:VirtualizedContainerService.HintSize="388,177" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="1e7ae2b6-536e-43df-b3f3-c777cd1dad67" Timeout="10" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com" CVScreenId="5b021650-2327-459e-a2b8-fd814f6f6dfa" DesignTimeRectangle="362, 174, 992, 47" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='twotabsearchtextbox' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='twotabsearchtextbox' tag='INPUT' type='text' class='nav-input nav-progressive-attribute' placeholder='*' aaname='*' /&gt;" Guid="67faf404-a3e9-4dba-ad30-e518fd812d31" InformativeScreenshot="30947095f82132661295c112e5c48c50.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com. Spend less. Smile more.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="1354, 173, 57, 50" ElementType="Button" FullSelectorArgument="&lt;webctrl id='nav-search-submit-button' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='nav-search-submit-button' tag='INPUT' type='submit' class='nav-input nav-progressive-attribute' aaname='*' /&gt;" Guid="998700e5-208a-41a2-86ba-961bebf59c3f" SearchSteps="Selector, FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1066" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="c702318091cb4acd0a1221c897e82fe6.jpg" Selector="&lt;html app='chrome.exe' title='Solución modular RPA UiPath' /&gt;" Title="Solución modular RPA UiPath" Url="[in_Config(&quot;url_Amazon&quot;).ToString]" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

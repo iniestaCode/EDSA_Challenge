@@ -1,0 +1,334 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Valida_IdiomaMoneda" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_UEBrowser" Type="InOutArgument(ui:UiElement)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1401,2742</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Valida idioma/moneda" sap:VirtualizedContainerService.HintSize="714,2677" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="English – EN" Name="strIdioma" />
+      <Variable x:TypeArguments="x:String" Default="USD - dólar estadounidense" Name="strMoneda" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="652,2566" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Set Idioma valor" sap:VirtualizedContainerService.HintSize="590,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[strIdioma]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_Config("idioma_Local").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Set moneda valor" sap:VirtualizedContainerService.HintSize="590,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[strMoneda]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_Config("moneda_Local").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Amazon.com en espanol. Gasta menos. Sonríe más." sap:VirtualizedContainerService.HintSize="590,2211" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[io_UEBrowser]" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="89d921a8-e1d4-49e7-8822-716818c8df7d" Version="V2" WindowResize="Maximize">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="556,2074" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="childrens" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Cambiar idioma'" sap:VirtualizedContainerService.HintSize="494,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="89d921a8-e1d4-49e7-8822-716818c8df7d" Version="V4">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="amazon.com" CVScreenId="12992cf3-579c-4ee2-8b51-3449ef9f5944" DesignTimeRectangle="1396, 166, 89, 63" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='icp-nav-flyout' tag='A' type='' class='nav-a nav-a-2 icp-link-style-2' aaname='*' /&gt;" Guid="d79553d0-5f69-4a37-9dc4-faff2d984ca0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF0AAABDCAYAAAD+rQkoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVlSURBVHhe7dh7TFNXAMfx/bdHMjIoKxFYG2TqsrgYGaKtG5b4QAErsgKVPqCCCI4KKE+Rh0DdZIAILY7BkNdYCGSKbgsxPjLGlrjNbSYQRvoPq/sHEhOI/tHFP367txSlUOjuessZyTnJ55/29J7mm8M9l74gWBcEanXR6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATwEt1bKIKXTwC8fINX5CMIgkjgjw0ciRl+QrHTtdcit6OzwQWBWxCwWQFRiBYvitUICtXilfVqBGzRwnuTBr5va+C3WYP1YiVOiSNh8H6Lk2IfIbb7CufWcvId1hq3o7/2eiBeFYXhzd35SMhohEhaBO3JZmyUnYVcV48weRXCFR9hX9InkEQUwJhSiN/yKjm5l1+IeMl7trWcfYe1hpfoLwfuQGB4EVJyLjPhL0GXexmJmZegzW5GUlYTVFlGaPQm6LJr0VRbi6lbdzhLVShp9Hm26Ot2QvjuGRw6WoesM+2ITq5BRmErPjh2Eck5zbboysxG5JcYYTpXjsnePs6So2OdR080oK1/EAPLMiL72fwYZDcO4SfzNGaeWGF9Mosp8yiGr3ehVBHueF0P4ie6vxTBsgrklHVAllCNwqoeRKo+RmZRGxTHG2zRU099inh1CdqL8/DAdIWzpL0HnUcv/xEzWGmY0W2bq0P3uNX+2tIxM2JYem0P4SX6S2+EwSssC7sUVais60doTCmKDF9gv/oCjuW1QK03Io7Z9fWmAVy99g3+fvyYs8wTetfRH1kwMW5eZAgGZl7sVYt9EjNmzczutv8l3L6PCQuz42+vsejs7WVjRCUKKrshOVSOsgt9iEishr6k3XaLYXd6GhP/0N4itEszMJag5Ez1zlaX0Vfard3j9kmw4Eai8zmrhaedvh0CSS6itDU4XdGFPUfO24Kz93j2UGWjJ2Q04JyhE32mLjz8bpgzXcIRt6KbRu2TmDH5bRlkTuasFp7u6RKIws8iJbcF2w7W4HhBG3bG1TKxLyNS3QD50Sbm3m6CXFWPnvoO/DF0hzN1nOvoVvPdZQ/RkJZRONzRn0xjYqRvVQ/QebxE99+wB7K4JqTldGPrvjp8WNCLHTEN0JzoQKSyGXJtC+LT2hB1uA7tRY34+eJnnCl3R7mMvnTMH6IsHUz3pu2vO46Z8UEUSBZc08N4iS6VHUZ1zTXUG2+uqKV5CDc7BzHW+xVn6ug419GXHKRzh+jC+bIcI278Pg3rU/tn5sfU3QWPlp7FS/T4KDl+7euD5eYtj0lRJLqMzumxT5KE0n4zZp7Fn8VwyfP3Nakn8OXA9RWxcxyu+S/xEl21JQRjKo1HsWvwGt2udGTW/mkmernjeyuF/6/BWbxET009jqmHf3kUu4Y70WOrjDDodY5PLftrMfzI/uFlHiWdhXcnOIufnR4qxYOTefjlVKnHKLfvchnd+Zg7TJ/vaGZY2Z8AHP87tY62ImTxte0Whnc3OIuX6CkHYvDnlU5MdvR4TMoBuVvR069blh6e7HhqxeRIKxIXX3cRNjYfwVm8RE9WqmD5ftjpr4N84edXxnDEpmcj/XwXBj6vRbo+A7Gr+Kg4j5fo0dL38XV+Me5nlXjED/ocKLbt4CH6/4Pb0b39RNgsDECaUIwKn00ecVogRKivn20tZ99hrXE7OkvoJ4bINwDBAn+PYK/NruFs7bWIl+gUNzQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATQ6ATT6qgvCP39S/mllqXw6AAAAAElFTkSuQmCC" InformativeScreenshot="6798a1339438e436d3bab54b30de044b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com en espanol. Gasta menos. Sonríe más.' /&gt;" SearchSteps="FuzzySelector, Image" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="1321, 173, 57, 50" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='nav-search-submit-button' tag='INPUT' type='submit' class='nav-input nav-progressive-attribute' aaname='Ir' check:text='Ir' /&gt;" Guid="1b37f4e8-188e-407b-b8da-c51659e1dec7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD0AAAA2CAYAAAB0pZEqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALeSURBVGhD7ZpNTxNBGMf5DpwkwUjgG/SN8tKCaMRIRaQ1MS7owRa9YDS+HDTxgPGg4sEIXiAEuJBoTDxY3s9eTQhy5QtwIRgTNT72P2XJoI/N1j5D2p2d5Je0O888md/O7OzsZuvqjzWRbfhWuvFEC3sc1NF++bV+01dsL1yjlfE03XGS1HC82Q5pnVe3ew+JWyENMOLWSWOqWyeNa9w6aRBIo3BBfiOQRuGC/EYgjcIF+Y0jkf6+coM+Tzv0bixF0w/7FfiNY6jj2pjEqPTXxRwtv7xEyfYohUIhFtQhBrFcDhMYk8bOx+lPUDjMy+ogBrFow+WSxoj05uwQdXcURzdSELrc10ET91K0MePQXj6nwO/J+ylVhxjEos2XuWE2pyTi0t+WRqi3O34wimPZrpJTF3W4xt14tEUOLlYKUWksSrecHtX5WDRM848vsHEciEUbtEUOkwucqPRWYWq2t0ZUx3OZLvqx6r3jiEUbtG0r5EAuLk4CUemZR+dVpyG+8+E6G1MKtHFPGnJxMRKISmcHO1WHs+kkW+8FtFU5Crm4eglEpU8nY6rDz0bPsvVeQFvkQC6uXgJR6WikuBC9vtvH1nvhzYPiJYJcXL0EotKnEsV7s8RIIxdXL4GotJXXtJWrt5X3aakd2eiVk7WzIwOV7r1B/nmafq7VkDTYmr/611MWnqjwZIWTArinLJd4LEzvn15kc0tgRBqU+zw9eCZOrfvTG+BEQNzEiBuTBpi6Xt+c7OWztPgifbDBARhxHONyV4JRaRcsSvo7sqkS78jePhk4JI7fOKbHVMqRSJcLRhejrIvjmNRUr0ppyOF61hc4ycWtKqVdIKmPuNTiVtXSkPtzcUu0Rf9ri6tT1dIu+uJ2ridOux8re0deE9JgeTyj7vufJjJsfTnUjLQkgTQKF+Q3AmkULshvBNIoXJCfsPLjOSs/k7Tug1hrPn3GNfzPj9z1P7ZgoXQT/QYKahPHM3xTQgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <ui:LogMessage DisplayName="Log &quot;Sección cambiar de idioma&quot;" sap:VirtualizedContainerService.HintSize="494,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Sección cambiar de idioma&quot;]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+              <uix:NCheckState DisplayName="Valida redirigio a cambio de idioma" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="494,1579" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="89d921a8-e1d4-49e7-8822-716818c8df7d" Timeout="5" Version="V4">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,1362" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click idioma" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="89d921a8-e1d4-49e7-8822-716818c8df7d" Version="V4">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="amazon.com/-/es/customer-preferences/edit" CVScreenId="06e173fb-fdce-4d5b-a66b-33a2c77698dd" CvElementArea="170, 524, 26, 26" CvType="RadioButton" DesignTimeRectangle="173, 526, 21, 22" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl type='' parentid='icp-language-settings' tag='I' class='a-icon a-icon-radio' aaname='' /&gt;" Guid="66f6a9b2-7f56-40e3-929d-2e684fb5095c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABkAAAAaCAYAAABCfffNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALrSURBVEhL5VX9S1NhFO5fqQwllCLT6ItCiCKI+qWI6APS0sxi2gcWQkaRRdoHUVAhNHVOU2ZpFs0UHWUpOUFXUtq2TBepm5tr7qZtT/e49+r9eMcMwl964OH+cs7zvO855z13ERYA/5HJiD+I6ncOZNxpRWJ2JRYf1s98D9xoRlW7HWOBKRYZHVFNfMFp3GvswbaLDUg9XYvlxyIGEuMzDUg9VYsdV16gtOkjvJPRzbgm9lE/9osnT8gyKIR5XJpehmRdDXaXvEKfy8sUlNCYkMGuEjNXMBbTCuthGxpnSnNQmEwI0zh4t40rMF9uKXwGj6pPCpPKts9Yd8bETZ4vlx0tx3n9W6YYwazJuNi4vWJd4zMrNImbChqRV9GNytd2mK2DqGl3oLC2F9uLmjWxxBUnjBjyBJiyzKShewgb8us0CWRwqe4DOh0+8SC/EQoDfiEEm+sn7rfYsfVyk3h65cESsiqgt/QzZZkJvQP1mBJzH3Wg44ubRSnhHA2guLEPSceNipy4jDIcutnComQm0kNT02DugmecP5qCIMDW/xUpuipNHulJmDVRB0k0dzkRCoVYlBLhcBgutx9r8h5zcyXEvAk1mXrAgzAdRs83H1JytSbcm9AuolWhDqYpoibzMOwV8NAyKE6Tsly0BfZdb2JRMpNyywBW6bQnojGlKXKMBTE5FRJLFLkBGTy1fsee2280h6N1VNbKma5h3yTSLtQrgiXSmF57PoD3Ti+G3YGZEtENyEAduyRdj2SxfC5vkCnLTAjFJqsmiUjvICmnCqvFm1KTqQdUIl55E7ONKKqxMsUIFCaewC/svPpSk/g33FxQj1G/wBQjUJgQaF3TNuUJxOLafBO6HGNMaQ4aEwKta9qmK09WI+5IOVdQzY3nnnANCFwTAi3MWw29WH/WJK4bw8yqkIvSmNIyTcoxQvfAgpGJuUarEdVEwg8xuVr8l9Mukh4sfekdlDZ/gtPNf0NyxDT5F1gAE+APtDMjnTOVPEgAAAAASUVORK5CYII=" InformativeScreenshot="2d463dbaa67c9403b8a0942085cddcc7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Cambiar configuración de idioma y moneda' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                              <uix:Target CVScreenId="06e173fb-fdce-4d5b-a66b-33a2c77698dd" CvTextArea="200, 527, 199, 21" CvTextArgument="espanol - ES - Traduccion" CvType="Text" DesignTimeRectangle="201, 527, 198, 22" FuzzySelectorArgument="&lt;webctrl aaname='         español -                                                                                          ' parentid='icp-language-settings' tag='SPAN' type='' class='' check:innerText='español - ES - Traducción' /&gt;" Guid="df02563a-f238-4c48-91d5-77dc0e6dd68e" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <ui:LogMessage DisplayName="Log &quot;Cambia de idioma&quot;" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Cambia de idioma&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:FindChildren Children="[childrens]" DisplayName="Find Children 'SPAN'" Filter="&lt;webctrl tag='option'/&gt;" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="FindChildren_4" Scope="FIND_DESCENDANTS">
+                      <ui:FindChildren.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="945c60e7-defd-4376-b9b4-4614dfadd9e3" InformativeScreenshot="cf97be578970ba8cebd60c3af8e9f951" Selector="&lt;html app='chrome.exe' title='*' /&gt;&lt;webctrl id='icp-currency-dropdown-container' tag='P' /&gt;" WaitForReady="COMPLETE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:FindChildren.Target>
+                    </ui:FindChildren>
+                    <uix:NSelectItem DisplayName="Select Item 'Currency Settings'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="[childrens.where(Function(x) x.Get(&quot;value&quot;).ToString.Contains(strMoneda.Substring(0,3))).FirstOrDefault().Get(&quot;innerhtml&quot;).ToString.Trim]" ScopeIdentifier="89d921a8-e1d4-49e7-8822-716818c8df7d" Version="V4">
+                      <uix:NSelectItem.Items>
+                        <scg:List x:TypeArguments="x:String" Capacity="50">
+                          <x:String>Select Currency</x:String>
+                          <x:String>$ - USD - US Dollar (Default)</x:String>
+                          <x:String>CLP - Chilean Peso</x:String>
+                          <x:String>COP - Colombian Peso</x:String>
+                          <x:String>HK$ - HKD - Hong Kong Dollar</x:String>
+                          <x:String>IDR - Indonesian Rupiah</x:String>
+                          <x:String>₪ - ILS - Israeli New Shekel</x:String>
+                          <x:String>₩ - KRW - South Korean Won</x:String>
+                          <x:String>MYR - Malaysian Ringgit</x:String>
+                          <x:String>NZ$ - NZD - New Zealand Dollar</x:String>
+                          <x:String>THB - Thai Baht</x:String>
+                          <x:String>NT$ - TWD - New Taiwan Dollar</x:String>
+                          <x:String>CRC - Costa Rican Colón</x:String>
+                          <x:String>PEN - Peruvian Sol</x:String>
+                          <x:String>UYU - Uruguayan Peso</x:String>
+                          <x:String>R$ - BRL - Brazilian Real</x:String>
+                          <x:String>A$ - AUD - Australian Dollar</x:String>
+                          <x:String>CA$ - CAD - Canadian Dollar</x:String>
+                          <x:String>CN¥ - CNY - Chinese Yuan</x:String>
+                          <x:String>€ - EUR - Euro</x:String>
+                          <x:String>¥ - JPY - Japanese Yen</x:String>
+                          <x:String>MX$ - MXN - Mexican Peso</x:String>
+                          <x:String>£ - GBP - British Pound</x:String>
+                          <x:String>AED - United Arab Emirates Dirham</x:String>
+                          <x:String>SGD - Singapore Dollar</x:String>
+                          <x:String>SAR - Saudi Riyal</x:String>
+                          <x:String>NOK - Norwegian Krone</x:String>
+                          <x:String>ARS - Argentine Peso</x:String>
+                          <x:String>AMD - Armenian Dram</x:String>
+                          <x:String>AWG - Aruban Florin</x:String>
+                          <x:String>AZN - Azerbaijani Manat</x:String>
+                          <x:String>BSD - Bahamian Dollar</x:String>
+                          <x:String>BZD - Belize Dollar</x:String>
+                          <x:String>BOB - Bolivian Boliviano</x:String>
+                          <x:String>BND - Brunei Dollar</x:String>
+                          <x:String>BGN - Bulgarian Lev</x:String>
+                          <x:String>KHR - Cambodian Riel</x:String>
+                          <x:String>KYD - Cayman Islands Dollar</x:String>
+                          <x:String>DOP - Dominican Peso</x:String>
+                          <x:String>EC$ - XCD - East Caribbean Dollar</x:String>
+                          <x:String>EGP - Egyptian Pound</x:String>
+                          <x:String>GHS - Ghanaian Cedi</x:String>
+                          <x:String>GTQ - Guatemalan Quetzal</x:String>
+                          <x:String>HUF - Hungarian Forint</x:String>
+                          <x:String>₹ - INR - Indian Rupee</x:String>
+                          <x:String>JMD - Jamaican Dollar</x:String>
+                          <x:String>KZT - Kazakhstani Tenge</x:String>
+                          <x:String>KES - Kenyan Shilling</x:String>
+                          <x:String>LBP - Lebanese Pound</x:String>
+                          <x:String>HNL - Honduran Lempira</x:String>
+                        </scg:List>
+                      </uix:NSelectItem.Items>
+                      <uix:NSelectItem.Target>
+                        <uix:TargetAnchorable BrowserURL="amazon.com/-/es/customer-preferences/edit" CVScreenId="88d24ce2-0761-45c7-85f6-468e31e694f6" DesignTimeRectangle="170, 893, 377, 36" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl parentid='icp-currency-dropdown-selected-item-prompt' tag='SPAN' /&gt;" Guid="c241b01c-ae7f-4da6-8893-f129b054f26f" ImageBase64="" InformativeScreenshot="ef807770f68b23c1fb48a42af7b1f775.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Cambiar configuración de idioma y moneda' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="88d24ce2-0761-45c7-85f6-468e31e694f6" DesignTimeRectangle="169, 792, 903, 35" ElementType="Text" FullSelectorArgument="&lt;webctrl id='icp-currency-heading' tag='H3' /&gt;" Guid="f717e678-8760-4b5e-b85f-d006f8d35468" SearchSteps="Selector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NSelectItem.Target>
+                    </uix:NSelectItem>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Cambia moneda&quot;]" />
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="89d921a8-e1d4-49e7-8822-716818c8df7d" Version="V4">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="amazon.com/-/es/customer-preferences/edit" CVScreenId="42ae60e8-434b-44a6-b5df-e53204b66141" CvElementArea="269, 849, 157, 42" CvTextArea="285, 862, 127, 15" CvTextArgument="*" CvType="Button" DesignTimeRectangle="273, 854, 151, 36" DesignTimeScaleFactor="1.25" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aria-labelledby='icp-save-button-announce' tag='INPUT' type='submit' class='a-button-input' aaname='' /&gt;" Guid="55bafe5c-df02-4d60-944a-bbb0589392de" ImageBase64="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" InformativeScreenshot="953aaa821918351ab74975b08d554fce.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Cambiar configuración de idioma y moneda' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="42ae60e8-434b-44a6-b5df-e53204b66141" CvElementArea="166, 849, 97, 43" CvTextArea="182, 862, 65, 15" CvTextArgument="Cance*" CvType="Button" DesignTimeRectangle="170, 854, 90, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='icp-cancel-button' tag='A' type='' class='a-button-text' aaname='Cance*' check:innerText='Cance*' /&gt;" Guid="642a2cc2-8a18-4fe7-a290-6b36e6806ace" ImageBase64="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" SearchSteps="FuzzySelector, Image, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NClick>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Fatal" Message="[&quot;Guarda cambios&quot;]" />
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable BrowserURL="amazon.com/-/es/customer-preferences/edit" CVScreenId="a26c0a83-1322-4b5f-a0aa-10c7d79bfca3" CvTextArea="200, 411, 96, 20" CvTextArgument="English - EN" CvType="Text" DesignTimeRectangle="173, 406, 899, 26" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='icp-language-settings' tag='LABEL' type='' class='' aaname='' check:innerText='English - EN' /&gt;" Guid="97b4ab94-71bb-4880-86b4-26e26f20595e" InformativeScreenshot="9ea22b54478b3082cca67aa4a35d312f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Cambiar configuración de idioma y moneda' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CVScreenId="a26c0a83-1322-4b5f-a0aa-10c7d79bfca3" CvTextArea="30, 177, 126, 27" CvTextArgument="amazon" CvType="Text" DesignTimeRectangle="24, 166, 143, 63" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='nav-logo-sprites' tag='A' type='' class='nav-logo-link nav-progressive-attribute' aaname='                     .us     ' check:text='.us' /&gt;" Guid="d0fff434-ae60-4af4-aa32-d71c5f2e2af1" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NCheckState.Target>
+              </uix:NCheckState>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="1911, -69, 1938, 1060" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF5SURBVDhPlVM9S8NQFBW0+QOO2h+gU9vdSbuLNP0HprtDfoBIhYKgWFyFLLpUC10EjbvawcFC4qJDm4CDllQdHHq9JzdfbYLUA4e8d98959738t4cESnMA2afOSuQC40Cg31EkrBtm3Rdp4qqklqtkmEYwUoKDRi4MhZ0u12az+VoYYowzIALg6GMBVqt5gs2ymWyLCuaL+fzQcYEhikDx3H8LkzTpMt2299C2EUG0gbYf6FUikRJZiBtEFaECbo5bjb/ZxAm79Xr/nxb06KY53l+LIG0QaFYjAQ4yOQfQTdTCAy+HJkycIBLfOIQ4AtRhbe1zmajd5fGFt+J+x1hZNBZJfqwEPgbt1sifNwlOoM0NBjcEJ3z8I4XR3E3KXwOiF5aUqy1iEjiDF4vxAS8WpMqvUOiJ2bviKtvSlXkoSDWA4P4Kr89SCJMkMwcB1/qrPATupa8H/4bYHCVGxhNAC0+n8Yd9LliNvzHhOd8wvxGZEYglzWk/AJk0E1AkKBI3AAAAABJRU5ErkJggg==" InformativeScreenshot="a059681689152b3399ef6c9a7da2ff8c.jpg" Selector="&lt;html app='chrome.exe' title='Amazon.com en espanol. Gasta menos. Sonríe más.' /&gt;" Title="Amazon.com en espanol. Gasta menos. Sonríe más." Version="V1" />
+        </uix:NApplicationCard.TargetApp>
+      </uix:NApplicationCard>
+    </Sequence>
+  </Sequence>
+</Activity>

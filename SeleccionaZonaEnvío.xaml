@@ -1,0 +1,257 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SeleccionaZonaEnvío" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ZonaEnvio" Type="InArgument(x:String)" />
+    <x:Property Name="inUEBrowser" Type="InOutArgument(ui:UiElement)" />
+    <x:Property Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="out_CargoDataEnvio" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="outUrlProducto" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1094,2238</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="546,2173" sap2010:WorkflowViewState.IdRef="Sequence_12">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use browser SZE" sap:VirtualizedContainerService.HintSize="484,2062" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[inUEBrowser]" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="1c72909b-1a6f-4eeb-91c4-7ffe6a1cc139" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Selecciona zona de envío" sap:VirtualizedContainerService.HintSize="450,1925" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NGetUrl CurrentUrl="[outUrlProducto]" DisplayName="Get URL producto" sap:VirtualizedContainerService.HintSize="388,87" sap2010:WorkflowViewState.IdRef="NGetUrl_1" Version="V4" />
+            <ui:LogMessage DisplayName="Log &quot;Obtiene Url Producto&quot;" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Obtiene Url Producto&quot;]" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Enviar a '" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1c72909b-1a6f-4eeb-91c4-7ffe6a1cc139" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/-/es/Adaptador-internacional-alimentaci%C3%B3n-inteligente-convertidor/dp/B07DQTL87X/ref=sr_1_6" CVScreenId="959a5d43-780b-47b0-8356-1631faaa96e4" CvElementArea="1591, 738, 23, 24" CvType="Icon" DesignTimeRectangle="1592, 743, 20, 17" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl id='contextualIngressPtPin' tag='DIV' type='' class='' aaname='' /&gt;" Guid="d434ecdd-6b4a-48dd-b638-0b115060e259" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJsSURBVEhLxVS/S6phGL3/gEuBoKu0lmhjINRgiQ45hCCCYIM2FdSiQw7mIEWINCk4OOSiREQQQVuhRpCESyaI4CxIJv7ixHmgS3y8ei8X4p7lcJ5znu/I975+v/DD+P8FrVYLqVQKq6urMBqN0Ol0wtSc05+FqQXv7++4urpCIBCA1WrF5uYmgsEg9vb2hKk5p88c8ypMLbi8vMT29jYcDgcODw9Fl8tlPD8/C1NzTp8l1CooC97e3uThLpcLJycnaDQaKJVKKBQKyOVywtSc03c6nZLnnhbKgtPTU6ysrCAcDuP19RWPj48IhUKw2WywWCzC1JzTZ4557mmhLGB4a2sLFxcX8kp8Ph+Wl5eRTCZxe3srTM05feaY554WygK9Xo+dnR3c39/j+voaCwsLyGazaDab6PV6wtSc02eOee5poSyYm5vD/v4+KpUKisUiDAYD7u7u0O12xSdTc06fOebn5+fF/w5lgdlslnfMh9zc3GBxcRGJREIOcTgcol6vi+acPnPMc08LZcHu7i7cbjcymQyenp5E8zryoefn58LUnNNPp9Pyv6DWQlnw8PAAu93++6a8vLzA6/ViaWkJJpNJmJrzrxvGPPe0UBZMJhPE43Gsr6/j4OAAHx8fcri1Wk3uP5mac/rMMc89LZQFBG9KLBbDxsaGcKfTQb/flweTqb/7zKswtWA8HssdPzo6wtraGo6Pj+WQR6ORMDXn9JljXoWpBcRgMEC1WkUkEpFD5Gchn88LU3NOn7lpmFlA8Be3221Eo1H4/X54PB5has7pz8IfC77AA+Rn+ezsTFh1oCr8dcG/4ocLgE87O8Ebbpd3iQAAAABJRU5ErkJggg==" InformativeScreenshot="a844972d6794bf0e18bab7a0fef5d7d8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="959a5d43-780b-47b0-8356-1631faaa96e4" CvTextArea="1674, 741, 37, 15" CvTextArgument="*" CvType="Text" DesignTimeRectangle="1676, 741, 34, 19" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='*' parentid='contextualIngressPtLabel_deliveryShortLine' tag='SPAN' type='' class='' check:innerText='*' /&gt;" Guid="e3f2523c-c26a-4aa9-91bd-d1fda6003857" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACYAAAAXCAYAAABnGz2mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIvSURBVEhL7ZXPSypRFMf7V9y1c9fSnTt37VpGUEIQ8SCDoIXkRmYjxNsI8XoFlhj0A8pAGlKKYEgekTxpwEeDvAfzMIwh0Rj4du6dOzVjI2kZFfiBuzgzx3M/nnuuDuGTMhDrlYFYr3wxsfsaLhUFyZV9RFby2CmUoTZNelFFcn4VvsSFledJFZvxNEZ/lNHk8QVmxlcRylR51C1tYib0oz2MTNDmVMw/m0KAln/SLtyNmIrYNOUsnUHncT/ErnIIUJERSYF2L57ZmN12rJ03izWQlWjT8CFOmYMntlgR2lkekWiad3Q0cYJzQ6SgBnmDRuDwWsReYi1oxzmMzVknwj9fd2/qECtjMfxSN4QYbRSMy/hZKCKboaOn2J8su3Me67SLmVAzafgmtxDLlSDTLEtL6/B9k3EpMhgOMatAYK0iYi+8jrL92Qtid0VM0QxPHTesmHGdR3A8jWW7ycQzsadv7kUfxPgcpzCzS91mHWdrd4/PdkSxUhgOsQqkWSoYV8Q196IPYso+jcI6QhLN4XfnkiHfWCkMhxhwnqSz5i3tNP19EPt7ghCJLf7qeMM4LjEYVIT9Bk1vQypUoN3UoNPSfpeQvapRwuvFgmsqdKNFsY7NKL1fyOH0P4sZLdz+qUC9EyHhFmPUS5CiKQxTMXb77DV28I9evkbMgJxgJ+F4RnvEWI5zj/A2djodpQuzgVvesTr4v9E70DSsE9Hrjhsq6Cz2wQzEemUg1hvAAzxKukiPdbqIAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:LogMessage DisplayName="Log &quot;Clic seccion otro país&quot;" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Clic seccion otro país&quot;]" />
+            <uix:NSelectItem DisplayName="Select Item 'o enviar fuera de los E…'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_4" Item="[in_TransactionItem(in_ZonaEnvio).ToString]" ScopeIdentifier="1c72909b-1a6f-4eeb-91c4-7ffe6a1cc139" Version="V4">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>Australia</x:String>
+                  <x:String>Canadá</x:String>
+                  <x:String>China</x:String>
+                  <x:String>Japón</x:String>
+                  <x:String>México</x:String>
+                  <x:String>Reino Unido</x:String>
+                  <x:String>Singapur</x:String>
+                  <x:String>Afganistán</x:String>
+                  <x:String>Albania</x:String>
+                  <x:String>Alemania</x:String>
+                  <x:String>Andorra</x:String>
+                  <x:String>Angola</x:String>
+                  <x:String>Anguilla</x:String>
+                  <x:String>Antigua y Barbuda</x:String>
+                  <x:String>Antillas Neerlandesas</x:String>
+                  <x:String>Arabia Saudita</x:String>
+                  <x:String>Argelia</x:String>
+                  <x:String>Argentina</x:String>
+                  <x:String>Armenia</x:String>
+                  <x:String>Aruba</x:String>
+                  <x:String>Australia</x:String>
+                  <x:String>Austria</x:String>
+                  <x:String>Azerbaiyán</x:String>
+                  <x:String>Bahamas</x:String>
+                  <x:String>Bahréin</x:String>
+                  <x:String>Bangladesh</x:String>
+                  <x:String>Barbados</x:String>
+                  <x:String>Belarús, República de</x:String>
+                  <x:String>Belice</x:String>
+                  <x:String>Benín</x:String>
+                  <x:String>Bermudas</x:String>
+                  <x:String>Bélgica</x:String>
+                  <x:String>Bolivia</x:String>
+                  <x:String>Bonaire, San Eustaquio y Saba</x:String>
+                  <x:String>Bosnia y Herzegovina</x:String>
+                  <x:String>Botsuana</x:String>
+                  <x:String>Brasil</x:String>
+                  <x:String>Brunei Darussalam</x:String>
+                  <x:String>Bulgaria</x:String>
+                  <x:String>Burkina Faso</x:String>
+                  <x:String>Burundi</x:String>
+                  <x:String>Bután</x:String>
+                  <x:String>Cabo Verde</x:String>
+                  <x:String>Camboya</x:String>
+                  <x:String>Camerún</x:String>
+                  <x:String>Canadá</x:String>
+                  <x:String>Chad</x:String>
+                  <x:String>Chile</x:String>
+                  <x:String>China</x:String>
+                  <x:String>Chipre</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/-/es/sincronizaci%C3%B3n-aplicaci%C3%B3n-inteligente-dormitorio-iluminaci%C3%B3n/dp/B09V366BDY/ref=sr_1_1" CVScreenId="77db9432-2bdc-453c-8c8b-78b99f7784e8" CvElementArea="760, 694, 417, 49" CvType="InputBox" DesignTimeRectangle="767, 712, 404, 36" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl parentid='GLUXCountryListDropdown' tag='SPAN' type='' class='a-button-inner' aaname='*' check:innerText='*' /&gt;" Guid="08248ab4-4077-4742-adec-b362d873b3c2" InformativeScreenshot="d8bb40cb7a87e90ac0b9cc98b107ffaa.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="77db9432-2bdc-453c-8c8b-78b99f7784e8" DesignTimeRectangle="864, 681, 210, 15" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='GLUXCountryListLabel' tag='H5' type='' class='' aaname='*' check:innerText='*' /&gt;" Guid="bed92c9c-d5f5-4b10-be85-4562afef6fbd" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <ui:LogMessage DisplayName="Log &quot;Ingresa país destino&quot;" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Ingresa país destino&quot;]" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Listo'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1c72909b-1a6f-4eeb-91c4-7ffe6a1cc139" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/-/es/sincronizaci%C3%B3n-aplicaci%C3%B3n-inteligente-dormitorio-iluminaci%C3%B3n/dp/B09V366BDY/ref=sr_1_1" CVScreenId="7985a1e3-8cdb-4cac-bc22-215cb68298bb" CvElementArea="1106, 766, 68, 42" CvTextArea="1121, 779, 37, 15" CvTextArgument="*" CvType="Button" DesignTimeRectangle="1110, 780, 61, 36" DesignTimeScaleFactor="1.25" ElementType="Button" FuzzySelectorArgument="&lt;webctrl name='glowDoneButton' tag='BUTTON' type='button' class='a-button-text' aaname='*' check:innerText='*' /&gt;" Guid="26325604-b4dc-43a6-838b-27548b733d6b" InformativeScreenshot="13618711836a6c26b88ab1df15ebc929.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="7985a1e3-8cdb-4cac-bc22-215cb68298bb" DesignTimeRectangle="864, 681, 210, 15" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='GLUXCountryListLabel' tag='H5' type='' class='' aaname='*' check:innerText='*' /&gt;" Guid="736ffba2-6bcd-4659-9e87-df6453b5a4c1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANYAAAATCAYAAADsxvMpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAfrSURBVHhe7ZqHU1VHFMbzVyaxIiIiIhaixCCWWLC3MfbYgjWIDR0swR67YlRE0BhjDCIihmIby8n+1ndwue59zWdG4v1mduDt3bt7zren7b73hUSIECHjiBwrQoSPgMixIkT4CIgcKw5evnwpfzc1ya1bt+Tp06ex3ggREqPXO9ajR49k+syZsv/AgVhPZtD15IlMmTpVvurbV7IGD5bKHTtiTz5NnD13Tgbl5MhNEwTSAfoVFBZaPjONjs5OOX3mjPx66lSPRh/PQENDw3vPafQnwqtXr+TK1avesbp2a0yvFy9eyPkLF+Tu3bv2swvGuDJ9CHq9Y/11754Mzc+XtevXx3oyg9rLl62h/nblSqzn08an7FjIhGw5Q4fKcLOGtqJx4+SPO3fsmMVLlki/gQMlf8SIHmPWrltnn8cD1cSkKVPsHEHo2vAD0A89fYHyQzl0EZWCIcgkyf8FeoNjqXH7gFPgHOmU3P8Lx3r9+rVN0d9NmGAjygxThv3pSasuHj58KEuXL7fjxxYXy4mTJ+084Pfbt2W7UbLp/n3ZuGmTjCoqsmNYg7S9a88eqdq716Z7BeSQoequX5euri75qbzcpnfwT3u7bN6yxc7BeqWTJsnVa9fkzZs39rmu19bWJj9v327fZQ4X1+vrZe78+dKnf3+ZNWeOLDOyMz8tON7XBx/wElwffXbs2iUNjY22b8WqVfZ9znLHjh+3pSfvwEHVvn12fBjumUyta8xfuNDqEjSKMDl88DkW+7Zy9WopHDXKKxMc6r7yfOu2bV6ZP0vHqjN1KS0ZsCmVO3dKVna2lG/cKMdPnJCy2bNtisdYfHjQ0iKjDenzFiywgu+pqpJsIzyGBOjjHMPmVRjjYM6SiRNlSF6erYP3ms3U/xW8S98dU0YEibpWVyc/rllj56Fx/srJzbVjAetRcuQNHy7jTXDAuB8/fmyfKQ4eOiTfT5v2nmP5jC/YBw+5RrY1poSxTmd4Yv36Gze6DSB32DDJLyiQ2XPnytFjx+z6q43MrEtA4R1kRHcfmpqa3spfUiJHjh61gQcZXKOIJ4cPQT3Yt5FjxnSvQYAbbN6HCwIBDjR1xgy7V8o1jtXR0WHfd/E5OZb6U0oZq7m52dbAm7dujfW8U2rOvHk9soqCsWQ3LgMAzrlw8WLb+N+njNuna1bHLidYg7UWLFpk/49HFAgSy18uI+pNVooHn1yJHAt5kEtlA/BDtiCjKFdkGM3YPsQzFACncAI3ClfeRHL4ENTNt8ap06ftGnUmeCnvv9TUxJ6GQ/fgyz59ejR3z9A1+DzIdRji8RXcf5XbZy++PU8XKTkWhA402YoI6ILsRcZpC0R+NhUnKJ08ufuWh8Znyp7nz597lXH7cL5Vphwh8xAl75uNhpiLly7ZsT6iWkwJo7dQRFscSYlNljzfuKDxAbevs7NTvjURnqChurI+ZdIPy5bFNYBnz57Jpdpa+8658+elpLTUO045Vf4UrryJ5PDB1SNsDbjPy8+32YsxK1autJkVOSk7w8pMZEK2miNH7Pza4EPBHOhMNtbnZPJ4AUjR6x0Lh8KxcDAXPoMDbAqbM2LkSFtCuI2yB/iUCfbhRNz8Uc5hIJSW6sRBojCiAYMGWaJZhyhNqanEJkueb5xPT7cPmQgwxePHv6cv3IUZgJZdhaNHW8PHqNHBZyjKKWM0GwFX3kRy+ODqEbZGkGuMniBAuQjH00xpqJWJC2RCNt0DH9AVblxnSxbKq1ZBLoJrqw6+zJ2sbSSDlByLg3/2kCHWuBVa2oWRgqFQi4cdxH3KBPvYLMrJ3SZSstluKeputhqES3CQ2GTJ841L5Fi6PhnWF73DHIsMQNnV2tpqP4eNU8ApGYnMpHDlTSSHD0HdfGs0mnMb5+MzZ8/Get6BiySXZxfBPfDhQxwLIO84E0ja29tjPW+BrGRVvj4Byg1nZ86KLuAgeJ5PFyk5Fs5RNmuWNXJujNi0CxcvWmer3r8/Nqonak15A6kHDh7sVgRH0ZtEnwH7+jjIcxjnBkovIoDPsbhQQVbWQy4uIXRTfXP74BtHQBmQlWV1Apw/ppeV9TBI1uMyh8ygZQwZhDIqnmNxocGGwim/9GDOMMdifeQg6qIjFwZ83+PKG08OH+CPC5XbJngyJ2twScUX77z/xOwZN6VFY8faEo3PLSbT6tx8OYsd+DIiMiFbsBREHrUJdA2WgjS9baW0p/rgNtQH5YTLKPhArsabN23mDjos3DC2orLSluDIQOblcgcHJUuzD7urquz++i5kEiElxwJEVW6C9ID5db9+sqG8vJugIFCQWytKG/cdzmUgWcfC6IgmetZSQL46FuCArWsRqcheGG0mHAvdvyku7taDkpRbtwJT6iIHQLb1GzZYHXUcctQcPhzqWJSCGCxjKak4g2JEYY5lN904I/PyDmdIzjsYkcobTw4fuEXEsFRn1thXXd1j3yhVqVoABk6Jr8+QGxl8dsB8zKtjtbn8omvwOU05oEpBfn5h4QPyHjaOCxfu+9hq84MHsVFvgYzbKiq6+aMhP4FDf3WBc3H5wxGEHyGkipQdS0EkwZhcI48HlCFCpfJOumB+NxpmEqpH8LuvIJABXZOVgwBEJkilFEpGz1TlCEL1pcTCeF3wmX7mT7eESxbwk8wayiMyJdoj1S1Mfp5TBaWDtB0rQoQI4YgcK0KEj4DIsSJEyDhE/gWDMjXH3cBGlAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:LogMessage DisplayName="Log &quot;Clic listo&quot;" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Clic listo&quot;]" />
+            <uix:NCheckState DisplayName="Check if load data" EnableIfExists="False" EnableIfNotExists="False" Exists="[out_CargoDataEnvio]" sap:VirtualizedContainerService.HintSize="388,177" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="1c72909b-1a6f-4eeb-91c4-7ffe6a1cc139" Timeout="5" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="amazon.com/-/es/Unidapt-adaptadores-europeos-adaptador-convertidor/dp/B077WJYNQ5/ref=sr_1_6" DesignTimeRectangle="1592, 460, 220, 72" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='amazonGlobal_feature_div' tag='SPAN' type='' class='a-size-base a-color-secondary' aaname='*' check:innerText='*' /&gt;" Guid="90132054-c84e-419e-a682-c04b053801f8" InformativeScreenshot="d728d47b80fad5dfeb9357e3ac5b8ad0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="6ab5a8d4-6f43-4a5a-ad54-9c6475338f9a" CvElementArea="1589, 811, 262, 42" CvTextArea="1665, 824, 112, 18" CvTextArgument="Comprar ahora" CvType="Button" DesignTimeRectangle="1593, 816, 256, 36" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='buy-now-button' tag='INPUT' type='submit' class='a-button-input' aaname='Comprar ahora' /&gt;" Guid="845f467e-05c3-4f12-93d7-9d387cf311b7" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <ui:LogMessage DisplayName="Log &quot;Cargó pestaña Envio?&quot;" sap:VirtualizedContainerService.HintSize="388,143" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Cargó pestaña?&quot; + out_CargoDataEnvio.ToString]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="1911, -69, 1938, 1060" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF5SURBVDhPlVM9S8NQFBW0+QOO2h+gU9vdSbuLNP0HprtDfoBIhYKgWFyFLLpUC10EjbvawcFC4qJDm4CDllQdHHq9JzdfbYLUA4e8d98959738t4cESnMA2afOSuQC40Cg31EkrBtm3Rdp4qqklqtkmEYwUoKDRi4MhZ0u12az+VoYYowzIALg6GMBVqt5gs2ymWyLCuaL+fzQcYEhikDx3H8LkzTpMt2299C2EUG0gbYf6FUikRJZiBtEFaECbo5bjb/ZxAm79Xr/nxb06KY53l+LIG0QaFYjAQ4yOQfQTdTCAy+HJkycIBLfOIQ4AtRhbe1zmajd5fGFt+J+x1hZNBZJfqwEPgbt1sifNwlOoM0NBjcEJ3z8I4XR3E3KXwOiF5aUqy1iEjiDF4vxAS8WpMqvUOiJ2bviKtvSlXkoSDWA4P4Kr89SCJMkMwcB1/qrPATupa8H/4bYHCVGxhNAC0+n8Yd9LliNvzHhOd8wvxGZEYglzWk/AJk0E1AkKBI3AAAAABJRU5ErkJggg==" InformativeScreenshot="3b945e3b9f7d0fced1ae5af55040d366.jpg" Selector="&lt;html app='chrome.exe' title='Amazon.com: Unidapt Adaptador de enchufe de viaje de EE. UU., UE, AU, Reino Unido, NZ, CN, en Estados Unidos (tipo B), enchufe de pared de 3 clavijas con conexión a tierra de EE. UU., adaptador y convertidor de : Herramientas y Mejoras del Hogar' /&gt;" Title="Amazon.com: Unidapt Adaptador de enchufe de viaje de EE. UU., UE, AU, Reino Unido, NZ, CN, en Estados Unidos (tipo B), enchufe de pared de 3 clavijas con conexión a tierra de EE. UU., adaptador y convertidor de : Herramientas y Mejoras del Hogar" Version="V1" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

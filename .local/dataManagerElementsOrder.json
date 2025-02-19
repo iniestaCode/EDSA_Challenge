@@ -1,0 +1,285 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "GetDtProducts.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "jsonArr_Productos&Sequence_1",
+        "strProductos&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "outDtProducts"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtFiltroDos&Sequence_38",
+        "dtFiltroUno&Sequence_38",
+        "Success&StateMachine_1",
+        "TransactionItem&StateMachine_1",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "Config&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "TransactionField2&StateMachine_1",
+        "TransactionField1&StateMachine_1",
+        "TransactionID&StateMachine_1",
+        "dt_TransactionData&StateMachine_1",
+        "ConsecutiveSystemExceptions&StateMachine_1",
+        "ShouldStop&Sequence_25"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_OrchestratorQueueName",
+        "in_OrchestratorQueueFolder"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strProductos&Sequence_9"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionNumber",
+        "in_Config",
+        "out_TransactionItem",
+        "out_TransactionField1",
+        "out_TransactionField2",
+        "out_TransactionID",
+        "io_dt_TransactionData"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Process.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "decEnvio&Sequence_10",
+        "decPrecio&Sequence_10",
+        "arrRow&Sequence_10",
+        "strUrlProducto&Sequence_1",
+        "strFechaEstimada&Sequence_1",
+        "listRanking&Sequence_1",
+        "strEnvio&Sequence_1",
+        "strPrecio&Sequence_1",
+        "blnExtrajoDatos&Sequence_1",
+        "dtProducto&Sequence_1",
+        "Success&Sequence_1",
+        "UE_browser&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionNumber",
+        "in_ColumnaNombreProd",
+        "in_ColumnaZonaEnvio",
+        "in_TransactionItem",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_SettingsAndConstants&Sequence_5",
+        "dt_Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/SetTransactionStatus.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "QueueRetry&Sequence_17",
+        "ScreenshotPath&Sequence_17"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_BusinessException",
+        "in_TransactionField1",
+        "in_TransactionField2",
+        "in_TransactionID",
+        "in_SystemException",
+        "in_Config",
+        "in_TransactionItem",
+        "io_RetryNumber",
+        "io_TransactionNumber",
+        "io_ConsecutiveSystemExceptions"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/KillAllProcesses.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_Success",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "AbrirNavegador.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strCodeCaptcha&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_blnOpenAmazon",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Valida_IdiomaMoneda.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strIdioma&Sequence_4",
+        "strMoneda&Sequence_4",
+        "childrens&Sequence_5"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "io_UEBrowser",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "BuscarProducto.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Browser",
+        "blnCargoDetailProd",
+        "in_TransactionItem",
+        "in_ColumnaNombreProd"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "ExtraerDatosDelProducto.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "blnCargoDataEnvío&Sequence_10"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Success",
+        "outUrlProducto",
+        "in_UEbrowser",
+        "in_ColumnaZonaEnvioProd",
+        "out_StrPrecio",
+        "out_StrEnvío",
+        "out_StrFechaEstimada",
+        "out_ListRanking",
+        "in_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SeleccionaZonaEnvío.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "outUrlProducto",
+        "out_CargoDataEnvio",
+        "in_TransactionItem",
+        "inUEBrowser",
+        "in_ZonaEnvio"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "ObtenerDetallesProducto.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtRating&Sequence_12"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Success",
+        "out_ListRanking",
+        "out_StrFechaEstimada",
+        "out_StrEnvío",
+        "out_StrPrecio",
+        "in_UEBrowser",
+        "in_TransactionItem",
+        "in_ColumnaZonaEnvioProd"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "FormateoRanking.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "partes&Sequence_17",
+        "itemLimpio&Sequence_17"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "listRanking",
+        "dtRating"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/TakeScreenshot.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Screenshot&Sequence_1",
+        "ScreenshotFileInfo&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Folder",
+        "io_FilePath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/CloseAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}

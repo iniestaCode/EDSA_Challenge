@@ -1,0 +1,418 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ObtenerDetallesProducto" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_ColumnaZonaEnvioProd" Type="InArgument(x:String)" />
+    <x:Property Name="in_UEBrowser" Type="InOutArgument(ui:UiElement)" />
+    <x:Property Name="out_StrPrecio" Type="OutArgument(x:String)" />
+    <x:Property Name="out_StrEnvío" Type="OutArgument(x:String)" />
+    <x:Property Name="out_StrFechaEstimada" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ListRanking" Type="OutArgument(scg:IList(x:String))" />
+    <x:Property Name="in_Success" Type="InArgument(x:Boolean)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>826,4391</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Activities.System.Arrays</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="836,4326" sap2010:WorkflowViewState.IdRef="Sequence_15">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Obtener Detalles producto" sap:VirtualizedContainerService.HintSize="774,4215" sap2010:WorkflowViewState.IdRef="Sequence_12">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="dtRating" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser ODP" sap:VirtualizedContainerService.HintSize="712,4104" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_UEBrowser]" OpenMode="Never" ScopeGuid="c29d472b-bd77-4433-84fb-e168b573e7a6" Version="V2">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="678,3927" sap2010:WorkflowViewState.IdRef="Sequence_16">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If Condition="[in_Success]" sap:VirtualizedContainerService.HintSize="616,2950" sap2010:WorkflowViewState.IdRef="If_1">
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="582,2768" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="0.6" DisplayName="Click 'Detalles'" sap:VirtualizedContainerService.HintSize="540,157" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c29d472b-bd77-4433-84fb-e168b573e7a6" Version="V4">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="amazon.com/-/es/reposapi%C3%A9s-ergon%C3%B3mica-reposabrazos-reposacabezas-sint%C3%A9tica/dp/B0D3VCKZPV/ref=sr_1_5" CVScreenId="93c2b208-9366-44c3-9f88-b9f43183699b" CvTextArea="1754, 276, 66, 16" CvTextArgument="Detalles" CvType="Text" DesignTimeRectangle="1755, 275, 69, 22" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='a-size-base' parentid='amazonGlobal_feature_div' tag='SPAN' type='' aaname=' Detalles ' check:innerText='Detalles' /&gt;" Guid="b5909f09-e59c-41ad-90df-4714f4030f1b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAaCAYAAAD7aXGFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQUSURBVFhH7VfPSxtBFO6/4q233HL05s2bN28tQhVEEaEKRZFSKUigCMFLQPyRYg2KSS1RIbA0ISEQEkQiEVciBjF0JcGwKKsEvr7ZnY2bZKOTpS1t2Q8GMm9n5r355s33Ji/g4lm4JAnAJUkALkkCcEkSwN9P0nUR+4kcUhd33ECws/1GNJGkXRzrzltb6lyFxsf8caSj6Hm9iv6tS24g2Nl+I5pIKm2FdOe2bSyMtbN7PrI7KBkJU0tp5Hm/K/ytJI2nuYHhoYJ8LIq+ISJqKISAg7jkEFs3Con3u8I/QRJHLbELD33r8eXarp6mlpHPsKt5jPyPdp2QFlk27iJSrUBhTbVkpHaDUsG85ieQrd8YuiXpQW2sJxUUaHVub+AetfMTw9/hBWrtA9ogTBJQhG+CZRNlRGNdFanlEF4y8izN6z9Cjb6Wvm432Rtt8UifnV0J2n4f2HmGkA4k1Q5j6HvTst4YxavyAeoRpsZavlObzfLvHdAFSWZGPF45ZY+REMTgTpGf2D2/WqsY/k4ZRVmiVGX43rJ57ZmUTyepKFQap6ldn2B+mo0NI3Krm8RJuk5jkCTB8z6JvLneWRz9TCZ49mcD7FBC8J+a2U5ZdVWEfM27HeCApFVMZViPZ9ZcEor+1cQxplhgPFuASwT0jYtpkkGyRfsEScqvb5BtG2stG5b8j76N+C0HIAgHJG3Ad0qdKp0cje2Zi3E9MVsS44w8UZJIQxSmEZkiStUb5B2RVMHme+ZjG/NNseSw9omRZ/jWMlF4WcwjIcx+I/0T0COGLkgyA6ENXFH3klKZOXwTRO/ERntbPjamPUFSjTbrZVlH63jGghZt65Yk0wetYxfLRAwpfVwdSlbCMDtE7qtvKQflGa7ESVIzGGYbmpSM984t9ZmjRsZ0QgeSbnPGetMS5AduIzi7bneILNj4eAIavdo3/SzLqNAsy9xqDzGS6goiPqMSDe6ZCnQB3yQFNnKA1JMnUUbgnc0GziT0tm6eYMTgQJM+sw0HMXsodoUMyJgfpdhmWnW1GbYkDayYdzqDwHIY/SNsk4+l3YRR3cj+QcJ+oWxUriq9mRJx+BNlPsoUT6qC6xlj3VSRxnFNm6arcMXnxQ54CbeQRDrCfHgW4jSX5nWy8erWMxqGj2wlXklLhRwCX3IokVxIe0l6O5lxViDHdnWNcpRJTW0oCO9MFIF02eb/m4rsVrihK9Y544kKH0O4TOOV9X1CJ1cifZB3tpveWJ53B9jf2qXfFpLqdF1n+Bj2RutkI9QK8WY/vHkXSXeIpMhC+7vM+zENuRtNcoz6HWr8dJRq5z/DmkpvIov+6NDfUjSv9aXtGHVa0ozFxh+rpmasgj5/DUn/OVySBOCSJACXJAG4JAnAJelZAD8BWT96HP2rL58AAAAASUVORK5CYII=" InformativeScreenshot="98c53e867cdf5d263942eac358363284.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: S*MAX Silla de juegos rosa con reposapiés, asiento grueso, silla ergonómica rosa con reposabrazos 3D, reposacabezas de piel sintética y soporte lumbar, silla de juegos de respaldo alto para niñas, : Hogar y Cocina' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="93c2b208-9366-44c3-9f88-b9f43183699b" CvElementArea="1591, 337, 24, 25" CvType="Icon" DesignTimeRectangle="1592, 341, 20, 18" FuzzySelectorArgument="&lt;webctrl id='contextualIngressPtPin' tag='DIV' type='' class='' aaname='' /&gt;" Guid="e4dd905e-1a47-4d6d-afad-966121e8ece9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAWCAYAAADafVyIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJtSURBVEhL5VS/S6phGL3/gEuBoKu0lmhjINRgiQ45hCCCYIM2FdSiQw7mIEWINCk4OOSiREQQQVuhRpCESyaI4CxIJv7ixHmgS3y8ei8Xmu5ZDuc55/mOfO/r9ws/jP+goNVqIZVKYXV1FUajETqdTpiac/qzMLXg/f0dV1dXCAQCsFqt2NzcRDAYxN7enjA15/SZY16FqQWXl5fY3t6Gw+HA4eGh6HK5jOfnZ2FqzumzhFoFZcHb25s83OVy4eTkBI1GA6VSCYVCAblcTpiac/pOp1Py3NNCWXB6eoqVlRWEw2G8vr7i8fERoVAINpsNFotFmJpz+swxzz0tlAUMb21t4eLiQl6Jz+fD8vIykskkbm9vhak5p88c89zTQlmg1+uxs7OD+/t7XF9fY2FhAdlsFs1mE71eT5iac/rMMc89LZQFc3Nz2N/fR6VSQbFYhMFgwN3dHbrdrvhkas7pM8f8/Py8+N+hLDCbzfKO+ZCbmxssLi4ikUjIIQ6HQ9TrddGc02eOee5poSzY3d2F2+1GJpPB09OTaF5HPvT8/FyYmnP66XRa/hfUWigLHh4eYLfbf9+Ul5cXeL1eLC0twWQyCVNz/nXDmOeeFsqCyWSCeDyO9fV1HBwc4OPjQw63VqvJ/SdTc06fOea5p4WygOBNicVi2NjYEO50Ouj3+/JgMvV3n3kVphaMx2O540dHR1hbW8Px8bEc8mg0EqbmnD5zzKswtYAYDAaoVquIRCJyiPws5PN5YWrO6TM3DTMLCP7idruNaDQKv98Pj8cjTM05/Vn4Y8EXeID8LJ+dnQmrDlSFvy74V/xwAfAJazEgyoZ5tCIAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NClick>
+                    <ui:LogMessage DisplayName="Log &quot;Click en detalles de envío.&quot;" sap:VirtualizedContainerService.HintSize="540,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Click en detalles de envío.&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <uix:NCheckState DisplayName="Check App State 'Detalles de envío y tar…'" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="540,2300" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="c29d472b-bd77-4433-84fb-e168b573e7a6" Timeout="5" Version="V4">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,2083" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NGetText ContinueOnError="True" DisplayName="Get Text 'Precio'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="c29d472b-bd77-4433-84fb-e168b573e7a6" TextString="[out_StrPrecio]" Version="V4">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="amazon.com/-/es/sincronizaci%C3%B3n-aplicaci%C3%B3n-inteligente-dormitorio-iluminaci%C3%B3n/dp/B09V366BDY/ref=sr_1_1" CVScreenId="bb417528-eb0a-40a9-be02-833174313fc1" CvTextArea="1026, 842, 100, 16" CvType="AnyWordGroup" DesignTimeRectangle="1029, 841, 98, 22" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-3' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='a-size-base a-color-base' /&gt;" Guid="5269838b-134a-4017-9a5b-2dea9e2a4d62" InformativeScreenshot="012ec30513c77de538539d82ff9a4fe4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                    <uix:Target CVScreenId="bb417528-eb0a-40a9-be02-833174313fc1" CvTextArea="750, 841, 50, 17" CvTextArgument="Precio" CvType="Text" DesignTimeRectangle="751, 841, 49, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-3' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='a-size-base a-color-secondary' aaname=' Precio ' check:innerText='Precio' /&gt;" Guid="fc715f71-e983-4ce4-8974-f89ba8442ff9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADUAAAAaCAYAAAAXHBSTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANASURBVFhH7ZbZT1NREMb9K1XWUpYAsgQTEhUiS4XwYCogS1iERCHwBAUEyxKWB0FEBF6KEJEQIlCIiBTZwjLeb7zTnB5vw5ISU9JfcpLes8zMN+ecOb1Dt5CIqHAhIipcuP2iVldXaXxi4p+G/rOzM3PWzeOZn6cHWVn0trfX7LkaAaI6OjvpblSUZXtWWkq/9/fNmTfL4NAQ3YuOppfV1XR+fm72Xh5LUR+npsweouPjY2prb2cnr5qbr+XkquBU7OzssO/rcKEo8Gt3lx7m5nLD75OTE/qpOD04OOAg5IhC+I/tbbaDhrlWYP3KygrNzM7yekkY+reN9bCrA1uw+WFykrybm5ZJvpQoGC8oKqIM45zD2delJUpISiJXVxc1NjXR/ZgY/xiOqLO8nHdWji7GXd3d/gCQlE5jbVxCgn8OWldPD4/DP74Rj2BlF81RUkK+vT1z1l8uJcrr9VJ6ZiY9ysujPcOAiIqJj6eC4mK+A5+mp+no6IiPaLzdzgUGO4esV9fWct+XhQW25+7v5+CeFhbSt+VlTsbm1hZtGH6ALgrJgF2saW1rY4GwiyQghudOJydKsBQ1PDrKjtA+z8zQY0MMDCIYIKLKKysDth9BpaanU0NjY0A/ArcnJ7N9BPQkP5+ThGRZoYuSpDqMYiVHHpyentKLigqOBTEJlqL0ZktMpN6+Pv+dEVGVVVX8LczOzVFUbCyLVZ+EgcFBSkpJYfsivKSsLCBAFV2U2G1pbeVvFewW5qqn68KdUguAEEyUBGM3xvDO6A07HWytii5K/1aRsQtFqROsCBaYx+OhOJvN0rkgO1XkcPAdtEIXIXZRlHSsYg6pqGBnX0XuVEpaGq2tr5u9geii8DxkZGfz3fb5fNwH4AO+klNT+V+PEFJRapWqqqnhN0gqm3tggBYXF3ne6NgYz8nKyaHhkRFa39jg6vl+fJzHdVGw2+Fy8b1CYfi+tsY26xoa2E5dfT0XDSGkosDh4aH/7YItaYlGoRBRCPKd280FSMYR3OuWFh7XRQGU7DdGoUAJlzXwAV/wqRIgKpTgaEix2TX+haglXpC/Q5gT7LjqqHaDrbkxUf+TiKhwISIqXLiFooj+AHpAAXPizA4RAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                                    <uix:Target CVScreenId="bb417528-eb0a-40a9-be02-833174313fc1" CvTextArea="749, 779, 265, 21" CvTextArgument="Detalles de envio y tarifa" CvType="Text" DesignTimeRectangle="751, 776, 376, 35" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-3' tag='H3' type='' class='' aaname='Detalles de envío y tarifa' check:innerText='Detalles de envío y tarifa' /&gt;" Guid="3892c20c-ab55-4522-8461-1cf996c01032" ImageBase64="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" SearchSteps="FuzzySelector, Image, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NGetText>
+                          <Assign DisplayName="Set Formato" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[out_StrPrecio]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[Regex.Replace(out_StrPrecio, "[^0-9.,]","")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log &quot;Obtiene precio: &quot;" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Obtiene precio: &quot; + out_StrPrecio]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <uix:NGetText DisplayName="Get Text 'Envío de AmazonGlobal'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="c29d472b-bd77-4433-84fb-e168b573e7a6" TextString="[out_StrEnvío]" Version="V4">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="amazon.com/-/es/sincronizaci%C3%B3n-aplicaci%C3%B3n-inteligente-dormitorio-iluminaci%C3%B3n/dp/B09V366BDY/ref=sr_1_1" CVScreenId="8cffb693-9870-4c7e-9aec-8e20145a31e1" CvTextArea="1026, 867, 101, 16" CvType="AnyWordGroup" DesignTimeRectangle="1529, 836, 98, 22" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-3' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='a-size-base a-color-base' /&gt;" Guid="4f01663b-053a-4c0e-96dd-cbc550e3b79c" InformativeScreenshot="3c05b145abc74251862aac170fbc5eeb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="8cffb693-9870-4c7e-9aec-8e20145a31e1" DesignTimeRectangle="1252, 836, 188, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-3' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='a-size-base a-color-secondary' aaname=' Envío de AmazonGlobal ' check:innerText='Envío de AmazonGlobal' /&gt;" Guid="feec1f7c-1ce3-4d67-8ce9-eeb7c8dfec16" SearchSteps="FuzzySelector" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NGetText>
+                          <Assign DisplayName="Elimina letras envio" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[out_StrEnvío]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[Regex.Replace(out_StrEnvío, "[^0-9.,]","")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log &quot;Obtiene envío: &quot; " sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Obtiene envío: &quot; + out_StrEnvío]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Cierra div envío" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c29d472b-bd77-4433-84fb-e168b573e7a6" Version="V4">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="amazon.com/-/es/reposapi%C3%A9s-ergon%C3%B3mica-reposabrazos-reposacabezas-sint%C3%A9tica/dp/B0D3VCKZPV/ref=sr_1_5" CVScreenId="37c90b87-0096-4adf-897d-b817b5bd7f5f" CvTextArea="1591, 416, 143, 35" CvTextArgument="*" CvType="Text" DesignTimeRectangle="1592, 411, 258, 44" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl type='' parentid='corePrice_feature_div' tag='DIV' class='a-section a-spacing-micro' aaname='*' check:innerText='*' /&gt;" Guid="fae2ea54-ed89-40e1-8e47-71169107b0fb" ImageBase64="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" InformativeScreenshot="827c4e1e47e907b03ad91db5e00c8442.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="37c90b87-0096-4adf-897d-b817b5bd7f5f" CvElementArea="1591, 583, 23, 24" CvType="Icon" DesignTimeRectangle="1592, 588, 20, 17" FuzzySelectorArgument="&lt;webctrl id='contextualIngressPtPin' tag='DIV' type='' class='' aaname='' /&gt;" Guid="ef6f3222-bb47-413d-b9e8-105f5192fd1b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJsSURBVEhLxVS/S6phGL3/gEuBoKu0lmhjINRgiQ45hCCCYIM2FdSiQw7mIEWINCk4OOSiREQQQVuhRpCESyaI4CxIJv7ixHmgS3y8ei8X4p7lcJ5znu/I975+v/DD+P8FrVYLqVQKq6urMBqN0Ol0wtSc05+FqQXv7++4urpCIBCA1WrF5uYmgsEg9vb2hKk5p88c8ypMLbi8vMT29jYcDgcODw9Fl8tlPD8/C1NzTp8l1CooC97e3uThLpcLJycnaDQaKJVKKBQKyOVywtSc03c6nZLnnhbKgtPTU6ysrCAcDuP19RWPj48IhUKw2WywWCzC1JzTZ4557mmhLGB4a2sLFxcX8kp8Ph+Wl5eRTCZxe3srTM05feaY554WygK9Xo+dnR3c39/j+voaCwsLyGazaDab6PV6wtSc02eOee5poSyYm5vD/v4+KpUKisUiDAYD7u7u0O12xSdTc06fOebn5+fF/w5lgdlslnfMh9zc3GBxcRGJREIOcTgcol6vi+acPnPMc08LZcHu7i7cbjcymQyenp5E8zryoefn58LUnNNPp9Pyv6DWQlnw8PAAu93++6a8vLzA6/ViaWkJJpNJmJrzrxvGPPe0UBZMJhPE43Gsr6/j4OAAHx8fcri1Wk3uP5mac/rMMc89LZQFBG9KLBbDxsaGcKfTQb/flweTqb/7zKswtWA8HssdPzo6wtraGo6Pj+WQR6ORMDXn9JljXoWpBcRgMEC1WkUkEpFD5Gchn88LU3NOn7lpmFlA8Be3221Eo1H4/X54PB5has7pz8IfC77AA+Rn+ezsTFh1oCr8dcG/4ocLgE87O8Ebbpd3iQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NGetText DisplayName="Get Fecha estimada" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="c29d472b-bd77-4433-84fb-e168b573e7a6" TextString="[out_StrFechaEstimada]" Version="V4">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="amazon.com/-/es/reposapi%C3%A9s-ergon%C3%B3mica-reposabrazos-reposacabezas-sint%C3%A9tica/dp/B0D3VCKZPV/ref=sr_1_5" CVScreenId="157fe27d-4360-4a74-9b4c-45546ba1a10b" DesignTimeRectangle="1592, 545, 258, 25" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl id='mir-layout-DELIVERY_BLOCK-slot-PRIMARY_DELIVERY_MESSAGE_LARGE' tag='DIV' type='' class='a-spacing-base' aaname='' /&gt;" Guid="3f813f6b-aa1c-4cbb-b08e-2861694c4e42" ImageBase64="" InformativeScreenshot="c4a515c897f964bbe32e5116650547ad.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="157fe27d-4360-4a74-9b4c-45546ba1a10b" CvElementArea="1591, 583, 23, 24" CvType="Icon" DesignTimeRectangle="1592, 588, 20, 17" FuzzySelectorArgument="&lt;webctrl id='contextualIngressPtPin' tag='DIV' type='' class='' aaname='' /&gt;" Guid="ac82f9b0-b4c2-4c3c-bd1b-05e7283d06c5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAVCAYAAABc6S4mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJsSURBVEhLxVS/S6phGL3/gEuBoKu0lmhjINRgiQ45hCCCYIM2FdSiQw7mIEWINCk4OOSiREQQQVuhRpCESyaI4CxIJv7ixHmgS3y8ei8X4p7lcJ5znu/I975+v/DD+P8FrVYLqVQKq6urMBqN0Ol0wtSc05+FqQXv7++4urpCIBCA1WrF5uYmgsEg9vb2hKk5p88c8ypMLbi8vMT29jYcDgcODw9Fl8tlPD8/C1NzTp8l1CooC97e3uThLpcLJycnaDQaKJVKKBQKyOVywtSc03c6nZLnnhbKgtPTU6ysrCAcDuP19RWPj48IhUKw2WywWCzC1JzTZ4557mmhLGB4a2sLFxcX8kp8Ph+Wl5eRTCZxe3srTM05feaY554WygK9Xo+dnR3c39/j+voaCwsLyGazaDab6PV6wtSc02eOee5poSyYm5vD/v4+KpUKisUiDAYD7u7u0O12xSdTc06fOebn5+fF/w5lgdlslnfMh9zc3GBxcRGJREIOcTgcol6vi+acPnPMc08LZcHu7i7cbjcymQyenp5E8zryoefn58LUnNNPp9Pyv6DWQlnw8PAAu93++6a8vLzA6/ViaWkJJpNJmJrzrxvGPPe0UBZMJhPE43Gsr6/j4OAAHx8fcri1Wk3uP5mac/rMMc89LZQFBG9KLBbDxsaGcKfTQb/flweTqb/7zKswtWA8HssdPzo6wtraGo6Pj+WQR6ORMDXn9JljXoWpBcRgMEC1WkUkEpFD5Gchn88LU3NOn7lpmFlA8Be3221Eo1H4/X54PB5has7pz8IfC77AA+Rn+ezsTFh1oCr8dcG/4ocLgE87O8Ebbpd3iQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NGetText>
+                          <ui:LogMessage DisplayName="Log &quot;Obtiene fecha estimada:&quot;" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Obtiene fecha estimada: &quot; + out_StrFechaEstimada]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Assign DisplayName="Assign - Elimina datos innecesarios" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[out_StrFechaEstimada]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(out_StrFechaEstimada,".*?(\d{1,2} de \w+)").Groups(1).Value]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign DisplayName="Assign Format fecha esperada" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[out_StrFechaEstimada]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(out_StrFechaEstimada, "d \de MMMM", System.Globalization.CultureInfo.GetCultureInfo("es-ES")).ToString("dd/MM/yyyy")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Da formato a fecha estimada: &quot; + out_StrFechaEstimada]" />
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="amazon.com/-/es/sincronizaci%C3%B3n-aplicaci%C3%B3n-inteligente-dormitorio-iluminaci%C3%B3n/dp/B09V366BDY/ref=sr_1_1" CVScreenId="a02652d1-b712-4798-91a4-92c145ac8de3" CvTextArea="749, 779, 265, 21" CvTextArgument="Detalles de *" CvType="Text" DesignTimeRectangle="1252, 746, 375, 35" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-3' tag='H3' type='' class='' aaname='Detalles de envío y tarifa' check:innerText='Detalles de envío y tarifa' /&gt;" Guid="abe96736-24b6-49cc-807e-ad441a940b73" InformativeScreenshot="dd182b0a3a31b92ee0f1340a1426f38d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="a02652d1-b712-4798-91a4-92c145ac8de3" CvTextArea="750, 841, 50, 17" CvTextArgument="Precio" CvType="Text" DesignTimeRectangle="1252, 811, 48, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='a-popover-content-3' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='a-size-base a-color-secondary' aaname='Precio' check:innerText='Precio' /&gt;" Guid="6e91aed2-dd8d-49fd-aedc-6f200fb072b2" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NCheckState.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NCheckState>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_18" />
+                </If.Else>
+              </If>
+              <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Scroll Reviews" sap:VirtualizedContainerService.HintSize="616,257" sap2010:WorkflowViewState.IdRef="NMouseScroll_2" InteractionMode="HardwareEvents" MovementUnits="10" ScopeIdentifier="c29d472b-bd77-4433-84fb-e168b573e7a6" Version="V4">
+                <uix:NMouseScroll.SearchedElement>
+                  <uix:SearchedElement Timeout="0.6">
+                    <uix:SearchedElement.Target>
+                      <uix:TargetAnchorable BrowserURL="amazon.com/-/es/Adaptador-internacional-alimentaci%C3%B3n-inteligente-convertidor/dp/B07DQTL87X/ref=sr_1_6" CVScreenId="6336c552-aa98-4183-9f58-0447639430d1" CvTextArea="30, 567, 82, 17" CvTextArgument="5 estrellas" CvType="Text" DesignTimeRectangle="32, 566, 80, 25" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl parentid='histogramTable' tag='DIV' type='' class='a-section a-spacing-none a-text-left aok-nowrap' aaname='5 estrellas' check:innerText='5 estrellas' /&gt;" Guid="ed5a112a-fa5a-4a84-bbf7-65e0f41b7414" InformativeScreenshot="af5e869fd39b51cedcdeb97b164c52ed.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="6336c552-aa98-4183-9f58-0447639430d1" CvTextArea="31, 449, 265, 26" CvTextArgument="Opiniones de clientes" CvType="Text" DesignTimeRectangle="32, 441, 375, 40" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='cm_cr_dp_d_rating_histogram' tag='H2' type='' class='' aaname='Opiniones de clientes' check:innerText='Opiniones de clientes' /&gt;" Guid="d7786ba9-0e26-42c8-a10c-d5ae28489693" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:SearchedElement.Target>
+                  </uix:SearchedElement>
+                </uix:NMouseScroll.SearchedElement>
+                <uix:NMouseScroll.Target>
+                  <uix:TargetAnchorable BrowserURL="amazon.com/-/es/XFX-Speedster-SWFT105-Radeon-6400/dp/B09Y7358KJ/ref=sr_1_1" CVScreenId="453696f1-4de9-4648-bcd0-54cb0f07e2dd" DesignTimeRectangle="1592, 703, 20, 17" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl id='contextualIngressPtPin' tag='DIV' type='' class='' aaname='*' /&gt;" Guid="ea81d76d-c7cb-44d1-801d-22517d1b320e" InformativeScreenshot="3a9e3445f17f9b7f8f06f883cbbccc76.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CVScreenId="453696f1-4de9-4648-bcd0-54cb0f07e2dd" CvElementArea="368, 170, 992, 52" CvType="InputBox" DesignTimeRectangle="367, 174, 954, 47" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='twotabsearchtextbox' tag='INPUT' type='text' class='nav-input nav-progressive-attribute' placeholder='*' aaname='*' /&gt;" Guid="3abce17c-c24e-4517-9cf8-f5d3f58f72a7" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NMouseScroll.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NMouseScroll>
+              <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dtRating]" DisplayName="Extract Reviews DT" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='New column 0' ReferenceName='Column0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='0' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="616,157" sap2010:WorkflowViewState.IdRef="NExtractData_2" InteractionMode="DebuggerApi" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="c29d472b-bd77-4433-84fb-e168b573e7a6" Version="V4">
+                <uix:NExtractData.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.amazon.com/-/es/sincronizaci%C3%B3n-aplicaci%C3%B3n-inteligente-dormitorio-iluminaci%C3%B3n/dp/B09V366BDY/ref=sr_1_1?crid=1ZYBJ5EWHHKOC&amp;currency=MXN&amp;dib=eyJ2IjoiMSJ9.N_1FcJfQtajWOclEtv-NAcu9zQnsTZUnoEteM1XNkVj2iZCN2dWaMALslIM41JF41mVBEoYqRS2QCkCwXrCm438Fj7pTlb8bXGzOF3XJSKhypXRHFr_Lojs3FAe6gsy0deuI-iKuqfixqDokBQJSbul8CI3LHMbgZ9KlRAu6CrP8hqQ3JTi9iB4OYu5Afx_x4JyUbdOlABUBIpmMY55EjZ8JwKrRGeiCXqUdgdDAgpdjAnIkuiODbqBdW2iHGiu0whbW12cMX4nnvQer7hXJYMpyuHYO4sRfNi9Z1fCwA6zSwD4iKV7d9k0CneBqNPMm5R1D_T7G5lnJJwpXKfoD2tCOIyhSQoolYrhaAuIb7bv2ubwUaYuk24-rDvVCof4IvdOq64bwFyhVGmqXKI7Sb6_vr0Xz1U0l8eOKlXmJ6LtdMq-_VWm6ocRg1shBGykI.W46tfHnsnhOYwvRrnKPUEFFMRT-17rYl5LOh74L2-1s&amp;dib_tag=se&amp;keywords=KSIPZE%2BTira%2Bde%2Bluces%2BLED%2Bde%2B100%2Bpies&amp;qid=1739911724&amp;sprefix=ksipze%2Btira%2Bde%2Bluces%2Bled%2Bde%2B100%2Bpies%2Caps%2C171&amp;sr=8-1&amp;th=1" DesignTimeRectangle="44, 469, 375, 418" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl id='cm_cr_dp_d_rating_histogram' tag='DIV' /&gt;" Guid="04a0f507-38a8-464b-81bb-11feca066ba9" InformativeScreenshot="370f07c0055a7b099d9c8e71df161642.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon.com: *' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                </uix:NExtractData.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NExtractData>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke FormateoRanking" sap:VirtualizedContainerService.HintSize="616,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="OnlyInvocation" LogExit="WithArguments" UnSafe="False" WorkflowFileName="FormateoRanking.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <OutArgument x:TypeArguments="scg:IList(x:String)" x:Key="listRanking">[out_ListRanking]</OutArgument>
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="dtRating">[dtRating]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InvokeWorkflowFile>
+              <ui:LogMessage DisplayName="Log Message review data" sap:VirtualizedContainerService.HintSize="616,143" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Obtiene datos de review&quot;]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="0, 0, 0, 0" Version="V1" />
+        </uix:NApplicationCard.TargetApp>
+      </uix:NApplicationCard>
+    </Sequence>
+  </Sequence>
+</Activity>
